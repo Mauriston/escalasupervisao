@@ -5,6 +5,9 @@
   // Precisa estar compartilhada como "Qualquer pessoa com o link: leitor".
   var SHEET_ID = '1iUXf6HYi_tIuOflN1kuCsLddUbpwIwu7S6KGYZrJSws';
   var SYNC_MS = 5 * 60 * 1000;
+  // URL /exec do Web App em apps-script/Code.gs, que salva uma cópia do PDF no Drive.
+  // Vazio = apenas baixa o PDF.
+  var DRIVE_ENDPOINT = '';
   var SHOW_RETEM = true;
   var HIGHLIGHT_HOLIDAYS = true;
 
@@ -172,10 +175,28 @@
         var pw = 297, ph = 210, mg = 7, aw = pw - 2 * mg, ah = ph - 2 * mg;
         var s = Math.min(aw / w, ah / h), iw = w * s, ih = h * s;
         pdf.addImage(url, 'JPEG', (pw - iw) / 2, (ph - ih) / 2, iw, ih, undefined, 'NONE');
-        pdf.save('Escala_Supervisao_SPA_' + MES_PDF[m] + y + '.pdf');
-        done();
+        var nome = 'Escala_Supervisao_SPA_' + MES_PDF[m] + y + '.pdf';
+        pdf.save(nome);
+        return saveToDrive(nome, pdf.output('datauristring').split(',')[1]);
       })
+      .then(done)
       .catch(function (err) { console.error('Falha ao gerar PDF', err); done(); });
+  }
+
+  // Envia o PDF ao Web App; text/plain evita o preflight de CORS do Apps Script.
+  function saveToDrive(nome, base64) {
+    if (!DRIVE_ENDPOINT) return;
+    return fetch(DRIVE_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ name: nome, data: base64 })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (res) { if (!res.ok) throw new Error(res.erro); })
+      .catch(function (err) {
+        console.error('Falha ao salvar no Drive', err);
+        alert('O PDF foi baixado, mas não foi possível salvar a cópia no Google Drive.');
+      });
   }
 
   // ---- Inicialização ----
