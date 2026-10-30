@@ -149,6 +149,18 @@
     renderSelects();
 
     document.title = 'Escala Supervisão SPA · ' + MESES[m] + ' ' + y;
+    fitToViewport();
+  }
+
+  // Em telas maiores que o layout (1280px), amplia tudo proporcionalmente até
+  // ocupar a largura ou a altura da janela, sem criar rolagem.
+  var MAX_ZOOM = 1.6;
+  function fitToViewport() {
+    var root = document.querySelector('.root');
+    root.style.zoom = '';
+    var w = root.offsetWidth, h = root.offsetHeight;
+    var z = Math.min(window.innerWidth / w, window.innerHeight / h, MAX_ZOOM);
+    if (window.innerWidth > w && z > 1.01) root.style.zoom = String(z);
   }
 
   // ---- PDF (clique no brasão) ----
@@ -209,6 +221,8 @@
   $('brasao').addEventListener('click', savePdf);
 
   render();
+  window.addEventListener('resize', fitToViewport);
+  if (document.fonts) document.fonts.ready.then(fitToViewport);
   sync();
   setInterval(sync, SYNC_MS);
   window.addEventListener('focus', sync);
