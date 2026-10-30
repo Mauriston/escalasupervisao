@@ -7,7 +7,7 @@
   var SYNC_MS = 5 * 60 * 1000;
   // URL /exec do Web App em apps-script/Code.gs, que salva uma cópia do PDF no Drive.
   // Vazio = apenas baixa o PDF.
-  var DRIVE_ENDPOINT = '';
+  var DRIVE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyoCpAYPhux5CtZk-ZKmlq3vqtaSq3P9hor459WkWrG0GSbLGCr9fAldUftVh1aoaSl1g/exec';
   var SHOW_RETEM = true;
   var HIGHLIGHT_HOLIDAYS = true;
 
