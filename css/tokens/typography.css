@@ -1,0 +1,44 @@
+:root{
+  --font-core:'Montserrat',system-ui,-apple-system,sans-serif;   /* fonte única do deck */
+  --font-display:'Montserrat',system-ui,sans-serif;              /* Octin College/Bebas quando licenciadas */
+  --font-mono:'Roboto Mono',ui-monospace,monospace;              /* faixas numéricas de limiar */
+
+  /* Escala do palco 1024×768 — valores literais do deck */
+  --fs-capa:60px;        /* título de capa */
+  --fs-h2:26.5px;        /* título de slide (caixa alta, centralizado) */
+  --fs-kpi-hero:60px;    /* número herói (kpi-box.big) */
+  --fs-kpi-xl:58px;      /* pontuação total */
+  --fs-kpi-l:52px;       /* kpi-box */
+  --fs-kpi-m:41px;       /* ind-card */
+  --fs-kpi-s:33px;       /* kpi-mini */
+  --fs-lead:16px;        /* nome em card de assinatura */
+  --fs-section:15px;     /* rótulo de seção caixa alta */
+  --fs-body:13.5px;
+  --fs-body-s:13px;
+  --fs-label:12px;
+  --fs-tag:11.5px;
+  --fs-eyebrow:11px;
+  --fs-table:11px;
+  --fs-nota:10.5px;
+  --fs-slide-tag:10.5px;
+  --fs-th:9px;
+  --fs-fonte:9.5px;
+  --fs-foot:8.5px;
+
+  --fw-regular:400; /* @kind font */
+  --fw-semibold:600; /* @kind font */
+  --fw-bold:700; /* @kind font */
+  --fw-black:800; /* @kind font */
+
+  --lh-title:1.25; /* @kind font */
+  --lh-capa:1.28; /* @kind font */
+  --lh-body:1.6; /* @kind font */
+  --lh-nota:1.5; /* @kind font */
+  --lh-tight:1; /* @kind font */
+
+  --ls-eyebrow:.16em; /* @kind font */   /* eyebrow / rótulo de seção */
+  --ls-foot:.08em; /* @kind font */      /* rodapé e slide-tag */
+  --ls-label:.06em; /* @kind font */     /* labels de KPI, th */
+  --ls-tag:.03em; /* @kind font */       /* tags e badges */
+  --ls-title:.01em; /* @kind font */
+}

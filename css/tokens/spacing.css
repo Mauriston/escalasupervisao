@@ -1,0 +1,36 @@
+:root{
+  /* Palco */
+  --stage-w:1024px;
+  --stage-h:768px;
+  --slide-pad-top:104px;   /* zona reservada à marca + título */
+  --slide-pad-x:54px;
+  --slide-pad-bottom:32px;
+
+  /* Escala de espaço observada no deck */
+  --sp-1:4px;
+  --sp-2:6px;
+  --sp-3:8px;
+  --sp-4:10px;
+  --sp-5:12px;
+  --sp-6:14px;
+  --sp-7:16px;
+  --sp-8:18px;
+  --sp-9:20px;
+  --sp-10:22px;
+  --sp-11:24px;
+  --sp-12:26px;
+  --sp-13:34px;
+
+  --gap-grid:18px;        /* grid de ind-cards */
+  --gap-kpi-row:16px;     /* linha de kpi-mini */
+  --gap-body-row:34px;    /* colunas do corpo do slide */
+  --gap-stack:20px;       /* pilha vertical */
+
+  /* Alturas fixas de chrome */
+  --brand-h:60px;         /* marca nos cantos superiores */
+  --brand-top:18px;
+  --brand-inset:34px;
+  --h2-top:20px;
+  --h2-h:60px;
+  --foot-bottom:12px;
+}

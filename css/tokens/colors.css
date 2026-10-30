@@ -1,0 +1,63 @@
+:root{
+  /* ── Base institucional (valores literais do deck CONGES) ── */
+  --navy:#121C4B;          /* Azul Marinha operacional — cor dominante */
+  --navy-050F41:#050F41;   /* Azul Marinha do MIV MB — ver readme (divergência) */
+  --blue:#1c4587;          /* Azul de apoio: eyebrows, rótulos de função */
+  --gold:#FAB932;          /* Amarelo Ouro — acento */
+  --green:#079558;         /* Verde Brasil (uso no deck) */
+  --green-dark:#04643B;    /* Verde escuro: deltas positivos, texto sobre branco */
+  --red:#85200c;           /* Vermelho pericial: alerta/ruim */
+  --red-dark:#6B1A0A;      /* Fundo de tag "Ruim" */
+  --gold-ink:#8A6100;      /* Único texto legível derivado do ouro */
+
+  /* ── Neutros ── */
+  --white:#ffffff;
+  --paper:#F7F8FA;         /* fundo alternativo de superfície */
+  --thead:#F2F4F8;         /* fundo de cabeçalho de tabela */
+  --line:#E3E6ED;          /* borda/hairline padrão */
+  --ink-1:#121C4B;         /* texto primário = navy */
+  --ink-2:#3D4460;         /* texto corrente */
+  --ink-3:#5A627A;         /* rótulos, labels em caixa alta */
+  --ink-4:#8A93AC;         /* metadados, unidades, estado neutro */
+  --ink-5:#B9BFD1;         /* rodapé de slide, 6ª fatia de gráfico */
+
+  /* ── Aliases semânticos ── */
+  --text-title:var(--navy);
+  --text-body:var(--ink-2);
+  --text-label:var(--ink-3);
+  --text-muted:var(--ink-4);
+  --text-eyebrow:var(--blue);
+  --text-footer:var(--ink-5);
+  --surface-page:var(--white);
+  --surface-card:var(--white);
+  --surface-alt:var(--paper);
+  --surface-thead:var(--thead);
+  --border-card:var(--line);
+  --accent:var(--gold);
+  --accent-soft:rgba(250,185,50,.08);
+  --accent-soft-strong:rgba(250,185,50,.18);
+
+  /* ── Estados de indicador (farol pericial) ── */
+  --state-excelente:var(--green-dark);
+  --state-bom:var(--green);
+  --state-bom-bg:rgba(7,149,88,.14);
+  --state-atencao:var(--gold-ink);
+  --state-atencao-bg:rgba(250,185,50,.2);
+  --state-ruim-bg:var(--red-dark);
+  --state-ruim:var(--red);
+  --delta-up:var(--green-dark);
+  --delta-down:var(--red);
+  --delta-flat:var(--ink-4);
+
+  /* ── Séries de gráfico (ordem canônica de 6 fatias) ── */
+  --chart-1:var(--navy);
+  --chart-2:var(--blue);
+  --chart-3:var(--gold);
+  --chart-4:var(--green);
+  --chart-5:var(--red);
+  --chart-6:var(--ink-5);
+  --chart-grid:rgba(227,230,237,.7);
+  --band-bom:rgba(7,149,88,.07);
+  --band-atencao:rgba(250,185,50,.18);
+  --band-ruim:rgba(133,32,12,.12);
+}
