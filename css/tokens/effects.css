@@ -1,0 +1,26 @@
+:root{
+  --radius-card:14px;      /* cards, elevated-card, kpi */
+  --radius-tag:20px;       /* pills e badges */
+  --radius-swatch:3px;     /* dot de legenda */
+  --radius-bar:4px;        /* topo das barras Chart.js */
+  --radius-nota:0 8px 8px 0; /* @kind radius */
+  --radius-tooltip:8px;
+
+  --border-hairline:1px solid var(--line); /* @kind other */
+  --border-dashed:1px dashed var(--line); /* @kind other */
+  --border-accent-left:3px solid var(--gold); /* @kind other */
+  --ind-rail-w:5px; /* @kind spacing */        /* trilho colorido do ind-card */
+
+  --shadow-card:0 3px 12px rgba(18,28,75,.08);   /* única sombra do sistema */
+
+  --grad-kpi:linear-gradient(180deg,#fff,rgba(250,185,50,.08)); /* @kind other */
+  --grad-kpi-mini:linear-gradient(180deg,#fff,rgba(250,185,50,.05)); /* @kind other */
+
+  /* Movimento */
+  --ease-slide:cubic-bezier(.22,.61,.36,1); /* @kind other */
+  --dur-fade:.52s; /* @kind other */
+  --dur-move:.62s; /* @kind other */
+  --dur-elem:.55s; /* @kind other */
+  --stagger:.09s; /* @kind other */
+  --enter-y:16px; /* @kind spacing */
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escala Supervisão SPA · HNRe</title>
+<meta name="description" content="Escala de Supervisão Médica do SPA do Hospital Naval de Recife, sincronizada com a planilha AGENDA.">
+<link rel="icon" href="assets/brasao-hnre.png">
+<link rel="stylesheet" href="css/tokens/fonts.css">
+<link rel="stylesheet" href="css/tokens/colors.css">
+<link rel="stylesheet" href="css/tokens/typography.css">
+<link rel="stylesheet" href="css/tokens/spacing.css">
+<link rel="stylesheet" href="css/tokens/effects.css">
+<link rel="stylesheet" href="css/escala.css">
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+<script src="js/snapshot.js" defer></script>
+<script src="js/escala.js" defer></script>
+</head>
+<body>
+<div class="root" data-p="root">
+  <div class="card" data-p="card" id="card">
+    <header class="header" data-p="header">
+      <div class="brand">
+        <img id="brasao" src="assets/brasao-hnre.png" alt="Brasão do HNRe" title="Clique para salvar a escala em PDF">
+        <div class="brand-txt">
+          <div class="hn" data-p="hn">HOSPITAL NAVAL DE RECIFE</div>
+          <div class="div">DIVISÃO DE MEDICINA</div>
+        </div>
+      </div>
+      <div class="titles">
+        <div class="t1" data-p="t1">ESCALA</div>
+        <div class="t2" data-p="t2">SUPERVISÃO MÉDICA DO SPA</div>
+      </div>
+      <div class="nav">
+        <button type="button" class="navbtn" data-noprint="1" id="prev" title="Mês anterior" aria-label="Mês anterior">‹</button>
+        <div class="picker">
+          <select id="selMonth" aria-label="Mês"></select>
+          <select id="selYear" aria-label="Ano"></select>
+        </div>
+        <button type="button" class="navbtn" data-noprint="1" id="next" title="Próximo mês" aria-label="Próximo mês">›</button>
+      </div>
+    </header>
+
+    <div class="scroll" data-p="scroll"><div class="scrollin" data-p="scrollin">
+      <div class="wk" data-p="wk" id="weekdays"></div>
+      <div class="grid" data-p="grid" id="grid"></div>
+    </div></div>
+
+    <footer class="foot" data-p="foot">
+      <div class="sig">
+        <img class="rub" data-p="rub" src="assets/rubrica.png" alt="Rubrica">
+        <div class="sig-n">MAURISTON RENAN MARTINS SILVA</div>
+        <div class="sig-p">Capitão-Tenente (Md)</div>
+        <div class="sig-f">Escalante</div>
+      </div>
+      <div class="sig">
+        <div class="sig-n">ALVARO ANTONIO CARDOSO BASTOS</div>
+        <div class="sig-p">Capitão de Mar e Guerra (Md)</div>
+        <div class="sig-f">Vice-diretor</div>
+      </div>
+      <div class="sig">
+        <div class="sig-n">EZENILDES RAMOS DE MIRANDA</div>
+        <div class="sig-p">Capitão de Fragata (CD)</div>
+        <div class="sig-f">Chefe do Departamento de Saúde</div>
+      </div>
+    </footer>
+  </div>
+  <p class="status" data-noprint="1"><span id="source"></span> · <span id="stats"></span></p>
+</div>
+</body>
+</html>
