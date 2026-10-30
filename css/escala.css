@@ -48,7 +48,7 @@ select:focus-visible,button:focus-visible{outline:2px solid #FAB932;outline-offs
 @media print{
   html,body{background:#fff !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   [data-noprint]{display:none !important}
-  [data-p=root]{max-width:none !important;width:283mm !important;height:196mm !important;padding:0 !important;gap:0 !important;overflow:hidden !important}
+  [data-p=root]{zoom:1 !important;max-width:none !important;width:283mm !important;height:196mm !important;padding:0 !important;gap:0 !important;overflow:hidden !important}
   [data-p=card]{border:0 !important;border-radius:0 !important;height:100% !important}
   [data-p=header]{padding:0 4mm 3mm !important;flex-wrap:nowrap !important}
   [data-p=header] img{height:46px !important}
