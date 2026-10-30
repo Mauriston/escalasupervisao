@@ -44,8 +44,6 @@ select:focus-visible,button:focus-visible{outline:2px solid #FAB932;outline-offs
 .sig-p{font-size:12.5px;color:#3D4460}
 .sig-f{font-size:12.5px;color:#1c4587;font-weight:600}
 
-.status{margin:0;text-align:center;font-size:11px;color:#5A627A}
-
 @page{size:A4 landscape;margin:7mm}
 @media print{
   html,body{background:#fff !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}

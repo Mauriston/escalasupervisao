@@ -58,9 +58,9 @@
   }
 
   // ---- Estado ----
-  var snap = window.ESCALA_SNAPSHOT || { date: '', data: {} };
+  var snap = window.ESCALA_SNAPSHOT || { data: {} };
   var now = new Date();
-  var state = { y: now.getFullYear(), m: now.getMonth(), data: snap.data, live: null, busy: false };
+  var state = { y: now.getFullYear(), m: now.getMonth(), data: snap.data, busy: false };
   try {
     var saved = JSON.parse(localStorage.getItem('escala-spa-mes') || 'null');
     if (saved && typeof saved.y === 'number' && typeof saved.m === 'number') { state.y = saved.y; state.m = saved.m; }
@@ -84,7 +84,7 @@
           var svc = (r[2] || '').trim(), ret = (r[3] || '').trim(); if (!svc && !ret) return;
           map[key(+mt[3], +mt[2] - 1, +mt[1])] = [svc, ret]; n++;
         });
-        if (n) { state.data = map; state.live = new Date(); render(); }
+        if (n) { state.data = map; render(); }
       })
       .catch(function (err) { console.warn('Sincronização com a planilha falhou; usando cópia local.', err); });
   }
@@ -114,13 +114,12 @@
     var startOff = new Date(y, m, 1).getDay(), dim = new Date(y, m + 1, 0).getDate();
     var total = Math.ceil((startOff + dim) / 7) * 7;
     var tk = keyOf(new Date());
-    var grid = $('grid'), frag = document.createDocumentFragment(), filled = 0;
+    var grid = $('grid'), frag = document.createDocumentFragment();
 
     for (var i = 0; i < total; i++) {
       var d = i - startOff + 1;
       if (d < 1 || d > dim) { frag.appendChild(el('div')); continue; }
       var k = key(y, m, d), dow = (startOff + d - 1) % 7, e = data[k], holiday = hol[k] || '';
-      if (e) filled++;
       var cell = el('div', 'cell'); cell.dataset.p = 'cell';
       if (purp.has(k)) cell.classList.add('purple');
       else if (dow === 0 || dow === 6 || holiday) cell.classList.add('special');
@@ -146,11 +145,6 @@
     grid.textContent = ''; grid.appendChild(frag);
     renderSelects();
 
-    var live = state.live;
-    $('source').textContent = live
-      ? 'Fonte: AGENDA · sincronizado com a planilha às ' + pad(live.getHours()) + ':' + pad(live.getMinutes())
-      : 'Fonte: AGENDA · cópia local de ' + snap.date;
-    $('stats').textContent = state.busy ? 'Gerando PDF…' : filled + ' de ' + dim + ' dias lançados';
     document.title = 'Escala Supervisão SPA · ' + MESES[m] + ' ' + y;
   }
 
@@ -163,8 +157,8 @@
     var card = $('card');
     if (!window.htmlToImage || !window.jspdf || state.busy) return;
     var w = card.offsetWidth, h = card.offsetHeight, y = state.y, m = state.m;
-    state.busy = true; render(); document.body.style.cursor = 'wait';
-    var done = function () { state.busy = false; render(); document.body.style.cursor = ''; };
+    state.busy = true; document.body.style.cursor = 'wait';
+    var done = function () { state.busy = false; document.body.style.cursor = ''; };
     warmFonts();
     fontCss
       .then(function (css) {
